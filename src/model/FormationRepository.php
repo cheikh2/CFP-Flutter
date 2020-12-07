@@ -27,7 +27,11 @@ class FormationRepository extends Model{
         return $formation;
     }
 
-
-
+    //Recupéreration de tous les programmes par formation
+    public function getProgrammeByFormation($id)
+    {
+        $programmes = $this->db->getRepository('Programme')->findBy(['formation'=>$id]);
+        return $programmes;
+    }
 
 }

@@ -13,19 +13,26 @@ class DepartementRepository extends Model{
         parent::__construct();
     }
 
-    //Recupéreration de tous les départements
+    #========Recupéreration de tous les départements===========
     public function getAllDepartement()
     {
         $departements = $this->db->getRepository('Departement')->findAll();
         return $departements;
     }
 
-    //Recupéreration d'un département
+    #========Recupéreration d'un département===========
     public function getOneDepartement($id)
     {
         $departement =  $this->db->getRepository('Departement')->findBy(['id'=>$id]);
         return $departement;
     }
+
+     #=======Recupéreration de toutes formation d'un departement=========
+     public function getFormationByDepartement($id)
+     {
+         $formations = $this->db->getRepository('Formation')->findBy(['departement'=>$id]);
+         return $formations;
+     }
 
 
 }
